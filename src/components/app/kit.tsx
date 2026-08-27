@@ -330,7 +330,7 @@ export function ActionMenu({
         {items.map((it) => (
           <DropdownMenuItem
             key={it.label}
-            onSelect={it.onSelect}
+            onSelect={() => it.onSelect?.()}
             className={cn("gap-2 text-[13px]", it.danger && "text-destructive focus:text-destructive")}
           >
             {it.icon && <it.icon className="h-3.5 w-3.5" />}
