@@ -197,9 +197,12 @@ function Dashboard() {
 
       <div className="mb-2 flex items-center justify-between">
         <h2 className="text-[14px] font-semibold">Recent Invoices</h2>
-        <Btn size="sm" variant="ghost" asChild={false}>
-          <Link to="/invoices">View all</Link>
-        </Btn>
+        <Link
+          to="/invoices"
+          className="rounded-md px-2 py-1 text-[12.5px] font-medium text-primary hover:bg-primary-soft"
+        >
+          View all
+        </Link>
       </div>
 
       <TableWrap>
