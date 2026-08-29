@@ -11,6 +11,14 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as CreateInvoiceRouteImport } from './routes/create-invoice'
+import { Route as EnquiriesRouteImport } from './routes/enquiries'
+import { Route as InvoicesRouteImport } from './routes/invoices'
+import { Route as ProductsRouteImport } from './routes/products'
+import { Route as ReportsRouteImport } from './routes/reports'
+import { Route as SetupRouteImport } from './routes/setup'
+import { Route as ThemesRouteImport } from './routes/themes'
+import { Route as CustomersIndexRouteImport } from './routes/customers.index'
+import { Route as CustomersIdRouteImport } from './routes/customers.$id'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -22,31 +30,134 @@ const CreateInvoiceRoute = CreateInvoiceRouteImport.update({
   path: '/create-invoice',
   getParentRoute: () => rootRouteImport,
 } as any)
+const EnquiriesRoute = EnquiriesRouteImport.update({
+  id: '/enquiries',
+  path: '/enquiries',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InvoicesRoute = InvoicesRouteImport.update({
+  id: '/invoices',
+  path: '/invoices',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductsRoute = ProductsRouteImport.update({
+  id: '/products',
+  path: '/products',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReportsRoute = ReportsRouteImport.update({
+  id: '/reports',
+  path: '/reports',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SetupRoute = SetupRouteImport.update({
+  id: '/setup',
+  path: '/setup',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ThemesRoute = ThemesRouteImport.update({
+  id: '/themes',
+  path: '/themes',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CustomersIndexRoute = CustomersIndexRouteImport.update({
+  id: '/customers/',
+  path: '/customers/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CustomersIdRoute = CustomersIdRouteImport.update({
+  id: '/customers/$id',
+  path: '/customers/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/create-invoice': typeof CreateInvoiceRoute
+  '/enquiries': typeof EnquiriesRoute
+  '/invoices': typeof InvoicesRoute
+  '/products': typeof ProductsRoute
+  '/reports': typeof ReportsRoute
+  '/setup': typeof SetupRoute
+  '/themes': typeof ThemesRoute
+  '/customers/$id': typeof CustomersIdRoute
+  '/customers/': typeof CustomersIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/create-invoice': typeof CreateInvoiceRoute
+  '/enquiries': typeof EnquiriesRoute
+  '/invoices': typeof InvoicesRoute
+  '/products': typeof ProductsRoute
+  '/reports': typeof ReportsRoute
+  '/setup': typeof SetupRoute
+  '/themes': typeof ThemesRoute
+  '/customers/$id': typeof CustomersIdRoute
+  '/customers': typeof CustomersIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/create-invoice': typeof CreateInvoiceRoute
+  '/enquiries': typeof EnquiriesRoute
+  '/invoices': typeof InvoicesRoute
+  '/products': typeof ProductsRoute
+  '/reports': typeof ReportsRoute
+  '/setup': typeof SetupRoute
+  '/themes': typeof ThemesRoute
+  '/customers/$id': typeof CustomersIdRoute
+  '/customers/': typeof CustomersIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/create-invoice'
+  fullPaths:
+    | '/'
+    | '/create-invoice'
+    | '/enquiries'
+    | '/invoices'
+    | '/products'
+    | '/reports'
+    | '/setup'
+    | '/themes'
+    | '/customers/$id'
+    | '/customers/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/create-invoice'
-  id: '__root__' | '/' | '/create-invoice'
+  to:
+    | '/'
+    | '/create-invoice'
+    | '/enquiries'
+    | '/invoices'
+    | '/products'
+    | '/reports'
+    | '/setup'
+    | '/themes'
+    | '/customers/$id'
+    | '/customers'
+  id:
+    | '__root__'
+    | '/'
+    | '/create-invoice'
+    | '/enquiries'
+    | '/invoices'
+    | '/products'
+    | '/reports'
+    | '/setup'
+    | '/themes'
+    | '/customers/$id'
+    | '/customers/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CreateInvoiceRoute: typeof CreateInvoiceRoute
+  EnquiriesRoute: typeof EnquiriesRoute
+  InvoicesRoute: typeof InvoicesRoute
+  ProductsRoute: typeof ProductsRoute
+  ReportsRoute: typeof ReportsRoute
+  SetupRoute: typeof SetupRoute
+  ThemesRoute: typeof ThemesRoute
+  CustomersIdRoute: typeof CustomersIdRoute
+  CustomersIndexRoute: typeof CustomersIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -65,12 +176,76 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CreateInvoiceRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/enquiries': {
+      id: '/enquiries'
+      path: '/enquiries'
+      fullPath: '/enquiries'
+      preLoaderRoute: typeof EnquiriesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/invoices': {
+      id: '/invoices'
+      path: '/invoices'
+      fullPath: '/invoices'
+      preLoaderRoute: typeof InvoicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/products': {
+      id: '/products'
+      path: '/products'
+      fullPath: '/products'
+      preLoaderRoute: typeof ProductsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reports': {
+      id: '/reports'
+      path: '/reports'
+      fullPath: '/reports'
+      preLoaderRoute: typeof ReportsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/setup': {
+      id: '/setup'
+      path: '/setup'
+      fullPath: '/setup'
+      preLoaderRoute: typeof SetupRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/themes': {
+      id: '/themes'
+      path: '/themes'
+      fullPath: '/themes'
+      preLoaderRoute: typeof ThemesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/customers/': {
+      id: '/customers/'
+      path: '/customers'
+      fullPath: '/customers/'
+      preLoaderRoute: typeof CustomersIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/customers/$id': {
+      id: '/customers/$id'
+      path: '/customers/$id'
+      fullPath: '/customers/$id'
+      preLoaderRoute: typeof CustomersIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CreateInvoiceRoute: CreateInvoiceRoute,
+  EnquiriesRoute: EnquiriesRoute,
+  InvoicesRoute: InvoicesRoute,
+  ProductsRoute: ProductsRoute,
+  ReportsRoute: ReportsRoute,
+  SetupRoute: SetupRoute,
+  ThemesRoute: ThemesRoute,
+  CustomersIdRoute: CustomersIdRoute,
+  CustomersIndexRoute: CustomersIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
