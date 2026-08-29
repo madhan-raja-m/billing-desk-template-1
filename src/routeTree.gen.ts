@@ -15,6 +15,7 @@ import { Route as EnquiriesRouteImport } from './routes/enquiries'
 import { Route as InvoicesRouteImport } from './routes/invoices'
 import { Route as ProductsRouteImport } from './routes/products'
 import { Route as ReportsRouteImport } from './routes/reports'
+import { Route as SetupRouteImport } from './routes/setup'
 import { Route as ThemesRouteImport } from './routes/themes'
 import { Route as CustomersIndexRouteImport } from './routes/customers.index'
 import { Route as CustomersIdRouteImport } from './routes/customers.$id'
@@ -49,6 +50,11 @@ const ReportsRoute = ReportsRouteImport.update({
   path: '/reports',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SetupRoute = SetupRouteImport.update({
+  id: '/setup',
+  path: '/setup',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ThemesRoute = ThemesRouteImport.update({
   id: '/themes',
   path: '/themes',
@@ -72,6 +78,7 @@ export interface FileRoutesByFullPath {
   '/invoices': typeof InvoicesRoute
   '/products': typeof ProductsRoute
   '/reports': typeof ReportsRoute
+  '/setup': typeof SetupRoute
   '/themes': typeof ThemesRoute
   '/customers/$id': typeof CustomersIdRoute
   '/customers/': typeof CustomersIndexRoute
@@ -83,6 +90,7 @@ export interface FileRoutesByTo {
   '/invoices': typeof InvoicesRoute
   '/products': typeof ProductsRoute
   '/reports': typeof ReportsRoute
+  '/setup': typeof SetupRoute
   '/themes': typeof ThemesRoute
   '/customers/$id': typeof CustomersIdRoute
   '/customers': typeof CustomersIndexRoute
@@ -95,6 +103,7 @@ export interface FileRoutesById {
   '/invoices': typeof InvoicesRoute
   '/products': typeof ProductsRoute
   '/reports': typeof ReportsRoute
+  '/setup': typeof SetupRoute
   '/themes': typeof ThemesRoute
   '/customers/$id': typeof CustomersIdRoute
   '/customers/': typeof CustomersIndexRoute
@@ -108,6 +117,7 @@ export interface FileRouteTypes {
     | '/invoices'
     | '/products'
     | '/reports'
+    | '/setup'
     | '/themes'
     | '/customers/$id'
     | '/customers/'
@@ -119,6 +129,7 @@ export interface FileRouteTypes {
     | '/invoices'
     | '/products'
     | '/reports'
+    | '/setup'
     | '/themes'
     | '/customers/$id'
     | '/customers'
@@ -130,6 +141,7 @@ export interface FileRouteTypes {
     | '/invoices'
     | '/products'
     | '/reports'
+    | '/setup'
     | '/themes'
     | '/customers/$id'
     | '/customers/'
@@ -142,6 +154,7 @@ export interface RootRouteChildren {
   InvoicesRoute: typeof InvoicesRoute
   ProductsRoute: typeof ProductsRoute
   ReportsRoute: typeof ReportsRoute
+  SetupRoute: typeof SetupRoute
   ThemesRoute: typeof ThemesRoute
   CustomersIdRoute: typeof CustomersIdRoute
   CustomersIndexRoute: typeof CustomersIndexRoute
@@ -191,6 +204,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ReportsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/setup': {
+      id: '/setup'
+      path: '/setup'
+      fullPath: '/setup'
+      preLoaderRoute: typeof SetupRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/themes': {
       id: '/themes'
       path: '/themes'
@@ -222,6 +242,7 @@ const rootRouteChildren: RootRouteChildren = {
   InvoicesRoute: InvoicesRoute,
   ProductsRoute: ProductsRoute,
   ReportsRoute: ReportsRoute,
+  SetupRoute: SetupRoute,
   ThemesRoute: ThemesRoute,
   CustomersIdRoute: CustomersIdRoute,
   CustomersIndexRoute: CustomersIndexRoute,
