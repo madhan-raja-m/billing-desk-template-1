@@ -15,6 +15,7 @@ import { Route as EnquiriesRouteImport } from './routes/enquiries'
 import { Route as InvoicesRouteImport } from './routes/invoices'
 import { Route as PrintPreviewRouteImport } from './routes/print-preview'
 import { Route as ProductsRouteImport } from './routes/products'
+import { Route as ProfileRouteImport } from './routes/profile'
 import { Route as ReportsRouteImport } from './routes/reports'
 import { Route as SetupRouteImport } from './routes/setup'
 import { Route as ThemesRouteImport } from './routes/themes'
@@ -51,6 +52,11 @@ const ProductsRoute = ProductsRouteImport.update({
   path: '/products',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProfileRoute = ProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ReportsRoute = ReportsRouteImport.update({
   id: '/reports',
   path: '/reports',
@@ -84,6 +90,7 @@ export interface FileRoutesByFullPath {
   '/invoices': typeof InvoicesRoute
   '/print-preview': typeof PrintPreviewRoute
   '/products': typeof ProductsRoute
+  '/profile': typeof ProfileRoute
   '/reports': typeof ReportsRoute
   '/setup': typeof SetupRoute
   '/themes': typeof ThemesRoute
@@ -97,6 +104,7 @@ export interface FileRoutesByTo {
   '/invoices': typeof InvoicesRoute
   '/print-preview': typeof PrintPreviewRoute
   '/products': typeof ProductsRoute
+  '/profile': typeof ProfileRoute
   '/reports': typeof ReportsRoute
   '/setup': typeof SetupRoute
   '/themes': typeof ThemesRoute
@@ -111,6 +119,7 @@ export interface FileRoutesById {
   '/invoices': typeof InvoicesRoute
   '/print-preview': typeof PrintPreviewRoute
   '/products': typeof ProductsRoute
+  '/profile': typeof ProfileRoute
   '/reports': typeof ReportsRoute
   '/setup': typeof SetupRoute
   '/themes': typeof ThemesRoute
@@ -126,6 +135,7 @@ export interface FileRouteTypes {
     | '/invoices'
     | '/print-preview'
     | '/products'
+    | '/profile'
     | '/reports'
     | '/setup'
     | '/themes'
@@ -139,6 +149,7 @@ export interface FileRouteTypes {
     | '/invoices'
     | '/print-preview'
     | '/products'
+    | '/profile'
     | '/reports'
     | '/setup'
     | '/themes'
@@ -152,6 +163,7 @@ export interface FileRouteTypes {
     | '/invoices'
     | '/print-preview'
     | '/products'
+    | '/profile'
     | '/reports'
     | '/setup'
     | '/themes'
@@ -166,6 +178,7 @@ export interface RootRouteChildren {
   InvoicesRoute: typeof InvoicesRoute
   PrintPreviewRoute: typeof PrintPreviewRoute
   ProductsRoute: typeof ProductsRoute
+  ProfileRoute: typeof ProfileRoute
   ReportsRoute: typeof ReportsRoute
   SetupRoute: typeof SetupRoute
   ThemesRoute: typeof ThemesRoute
@@ -217,6 +230,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProductsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/profile': {
+      id: '/profile'
+      path: '/profile'
+      fullPath: '/profile'
+      preLoaderRoute: typeof ProfileRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/reports': {
       id: '/reports'
       path: '/reports'
@@ -262,6 +282,7 @@ const rootRouteChildren: RootRouteChildren = {
   InvoicesRoute: InvoicesRoute,
   PrintPreviewRoute: PrintPreviewRoute,
   ProductsRoute: ProductsRoute,
+  ProfileRoute: ProfileRoute,
   ReportsRoute: ReportsRoute,
   SetupRoute: SetupRoute,
   ThemesRoute: ThemesRoute,
