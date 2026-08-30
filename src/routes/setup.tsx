@@ -93,13 +93,13 @@ function SetupPage() {
 
       <div className="grid gap-2.5 lg:grid-cols-[220px_minmax(0,1fr)]">
         <aside className="plate h-fit p-1 lg:sticky lg:top-16">
-          <div className="scrollbar-thin flex gap-1 overflow-x-auto lg:block">
+          <div className="scrollbar-thin space-y-0.5">
             {SECTIONS.map((s) => (
               <button
                 key={s.id}
                 onClick={() => setActive(s.id)}
                 className={cn(
-                  "mb-0.5 flex shrink-0 items-center gap-2 rounded-md px-2.5 py-2 text-[12.5px] whitespace-nowrap transition-colors lg:w-full",
+                  "flex w-full items-center gap-2 rounded-md px-2.5 py-2 text-[12.5px] whitespace-nowrap transition-colors",
                   active === s.id
                     ? "bg-primary-soft font-medium text-primary"
                     : "text-muted-foreground hover:bg-secondary hover:text-foreground",
